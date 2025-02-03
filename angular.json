@@ -95,6 +95,17 @@
             ],
             "scripts": []
           }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "fe-routing-and-forms-workshop:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fe-routing-and-forms-workshop:serve:production"
+            }
+          }
         }
       }
     }
