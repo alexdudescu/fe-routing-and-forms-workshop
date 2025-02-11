@@ -23,53 +23,21 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   styleUrl: './note-upsert.component.css',
 })
 export class NoteUpsertComponent {
-  private _formBuilder = inject(FormBuilder);
-  private _noteService = inject(NoteService);
-  private _router = inject(Router);
   private _activatedRoute = inject(ActivatedRoute);
 
-  private _isEdit = false;
-  private _id = null;
+  isEdit = false;
+  id = null;
+  note = null;
 
   ngOnInit() {
     const { note, isEdit } = this._activatedRoute.snapshot.data;
     const id = this._activatedRoute.snapshot.params['id'];
 
-    this._isEdit = isEdit;
-    this._id = id;
-
-    if (note as INote) {
-      const { id, ...rest } = note;
-      this.noteForm.setValue(rest);
-    }
+    this.isEdit = isEdit;
+    this.id = id;
+    this.note = note;
   }
 
-  public noteForm = this._formBuilder.nonNullable.group({
-    title: this._formBuilder.nonNullable.control('', [Validators.required, Validators.maxLength(10)]),
-    content: this._formBuilder.nonNullable.control('', [Validators.required]),
-  });
-
   public onSubmit() {
-    const value = this.noteForm.value as INote;
-
-    if (this._isEdit) {
-      this._noteService
-        .edit(this._id!, value)
-        .pipe(
-          tap(() => {
-            this._router.navigate(['/']);
-          }),
-        )
-        .subscribe();
-    } else {
-      this._noteService
-        .add(value)
-        .pipe(
-          tap(() => {
-            this._router.navigate(['/']);
-          }),
-        )
-        .subscribe();
-    }
   }
 }
