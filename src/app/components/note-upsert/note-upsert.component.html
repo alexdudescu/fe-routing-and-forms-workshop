@@ -1,0 +1,16 @@
+<form [formGroup]="noteForm">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Content</mat-label>
+    <textarea rows="20" matInput formControlName="content"> </textarea>
+  </mat-form-field>
+
+  <div class="button-group">
+    <a mat-stroked-button [routerLink]="['/']">Cancel</a>
+    <button mat-flat-button (click)="onSubmit()" [disabled]="!noteForm.valid">Submit</button>
+  </div>
+</form>
