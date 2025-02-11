@@ -1,0 +1,9 @@
+@let notes = noteList$ | async;
+
+<div class="container">
+  @for (note of notes; track note.id) {
+  <note class="card"
+        [noteData]="note"
+        (deleted)="deleted()"></note>
+  }
+</div>

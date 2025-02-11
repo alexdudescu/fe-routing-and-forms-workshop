@@ -1,0 +1,32 @@
+{
+  "notes": [
+    {
+      "title": "Meeting Notes",
+      "content": "Discussed project deadlines and assigned tasks.",
+      "id": "a1b2"
+    },
+    {
+      "title": "Shopping List",
+      "content": "Milk, eggs, bread, coffee, and vegetables.",
+      "id": "c3d4"
+    },
+    {
+      "title": "Workout Plan",
+      "content": "Monday: Chest & Triceps, Wednesday: Back & Biceps, Friday: Legs & Core.",
+      "id": "e5f6"
+    },
+    {
+      "title": "Angular Workshop",
+      "content": "Covering routing, forms, and API integration with backend team.",
+      "id": "g7h8"
+    },
+    {
+      "title": "Book Ideas",
+      "content": "Outline a sci-fi story about time loops and parallel universes.",
+      "id": "i9j0"
+    }
+  ],
+  "user": {
+    "secret": "super_secret"
+  }
+}
